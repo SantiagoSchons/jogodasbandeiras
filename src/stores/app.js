@@ -3,10 +3,11 @@ import { defineStore } from 'pinia'
 
 export const useAppStore = defineStore('app', () => {
   const bandeirasSorteadas = ref([])
-  const qtdBandeiras = 9
   const bandeiraCerta = ref(null)
-  const doubleCount = computed(() => count.value * 2)
-
+  const qtdBandeiras = 9
+  const tempoini = 0
+  const cronometro = ref(null)
+  const mudo = false
   function sortearBandeiras(bandeiras) {
     while(bandeirasSorteadas.value.length < 9){
       const elementoSorteio = Math.floor(Math.random() * 50);
@@ -22,5 +23,7 @@ export const useAppStore = defineStore('app', () => {
 
   }
 
-  return { bandeirasSorteadas, sortearBandeiras, bandeiraCerta }
+
+
+  return { bandeirasSorteadas, sortearBandeiras, bandeiraCerta, tempoini, cronometro, mudo }
 })
